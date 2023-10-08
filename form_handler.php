@@ -1,11 +1,18 @@
 <?php
-$product_id = "1222";
-$clickID = isset($_COOKIE['click_id']) ? $_COOKIE['click_id'] : null;
-$affID = isset($_COOKIE['aff_id']) ? $_COOKIE['aff_id'] : null;
-$name = $_POST['name'];
-$phone = $_POST['phone'];
+$name  = trim($_POST["name"]);
+$phone = trim($_POST["phone"]);
+$aff_id = isset($_POST["aff_id"]) ? $_POST["aff_id"] : $_COOKIE['aff_id'];
+/**
+ * Функция Debug
+ *
+ */
 
-setcookie("click_id", "", time() - 3600);
+function d($value = null, $die = 1)
+{
+  print_r($value);
+  echo '</pre>';
+  if ($die) die;
+}
 
 function isVaildPhone($phone)
 {
@@ -34,17 +41,17 @@ function isSpam($phone)
 };
 
 $orderInfo = [
-  "product_id" => $product_id,
-  "ip" => trim($_SERVER["REMOTE_ADDR"]),
-  "name" => trim($_POST["name"]),
-  "phone" =>  trim($_POST["phone"]),
-  "click_id" => $clickID,
-  "aff_id" => $affID,
+  "offer_id"        => "13",
+  "name"            => $name,
+  "phone"           => $phone,
+  "aff_id"          => $aff_id ?? null,
+  "availableParams" => json_decode($_COOKIE['availableParams'], 1) ?? null,
+  "server_info"     => $_SERVER
 ];
 
 $jsonData = json_encode($orderInfo);
 
-$url = "https://api.kost1.space/createlead";
+$url = "https://api.kost1.space/v1/lead/create";
 $curl = curl_init($url);
 
 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
