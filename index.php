@@ -781,7 +781,7 @@ $period_cookie = 2592000;
             }
         });
     </script>
-    
+
     <script>
         function sclClickPixelFn(aff_id = null, offer_id = null) {
             const url = new URL(document.location.href).searchParams;
