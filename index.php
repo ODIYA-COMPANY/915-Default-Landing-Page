@@ -174,8 +174,6 @@ if ($_GET) {
                 <li>
                     <table class="size" width="100%">
                         <tbody>
-
-
                             <tr align="center" height="35">
                                 <td>Кофтинка</td>
                                 <td>54-56</td>
@@ -580,7 +578,6 @@ if ($_GET) {
                 <div class="ardfsczivqxoz pjapicqhpowl">
 
                     <div class="vwtdyjquxiksspz">
-
                         <img src="files/benefit1.jpg" alt="">
                         <p>МОДНИЙ ДИЗАЙН</p>
                     </div>
@@ -590,9 +587,7 @@ if ($_GET) {
                         <p>ВИСОКА ЯКІСТЬ</p>
                     </div>
                     <div class="vwtdyjquxiksspz">
-
                         <img src="files/benefit3.jpg" alt="">
-
                         <p>ПРЕМІУМ ТКАНИНА</p>
                     </div>
                 </div>
@@ -600,7 +595,6 @@ if ($_GET) {
                 <p align="center">Для замовлення та консультації заповніть форму:</p>
                 <br>
                 <form id="order_form" class="pzgghtazppvd" action="form_handler.php" method="post">
-
                     <input class="uwvqpvolzaqfvfu" type="text" name="name" placeholder="Введіть ваше ім'я" required>
                     <input class="uwvqpvolzaqfvfu" type="tel" name="phone" placeholder="Введіть Ваш телефон" required>
                     <input type="hidden" name="aff_id" value="<?= $aff_id ?>">
@@ -734,13 +728,9 @@ if ($_GET) {
         $(function() {
 
             $('.zortpvjkdxp').click(function() {
-
                 ind = $(this).attr('rel');
-
                 $('#select option').removeAttr('selected');
-
                 $('#select').children('option').eq(ind).attr("selected", "selected");
-
             });
 
 

@@ -2,17 +2,6 @@
 $name  = trim($_POST["name"]);
 $phone = trim($_POST["phone"]);
 $aff_id = isset($_POST["aff_id"]) ? $_POST["aff_id"] : $_COOKIE['aff_id'];
-/**
- * Функция Debug
- *
- */
-
-function d($value = null, $die = 1)
-{
-  print_r($value);
-  echo '</pre>';
-  if ($die) die;
-}
 
 function isVaildPhone($phone)
 {
@@ -56,6 +45,7 @@ $curl = curl_init($url);
 
 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($curl, CURLOPT_POSTFIELDS, $jsonData);
+curl_setopt($curl, CURLOPT_TIMEOUT, 1);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt(
   $curl,
